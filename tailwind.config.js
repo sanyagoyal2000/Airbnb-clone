@@ -3,10 +3,16 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'fira-sans': ['"Fira Sans"', 'sans-serif'],
+        'inter':["Inter",'sans-serif'],
+        'rubik':["Rubik",'sans-serif'],
+      }
+    },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 }
