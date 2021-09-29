@@ -44,7 +44,7 @@ export default function Home({exploreData,cardsData,discoverData}) {
         </section>
         <section className="pt-10 max-w-7xl px-8 mx-auto sm:px-16 pb-10">
         <h2 className="text-3xl font-semibold pb-5 font-inter">Discover things to do</h2>
-        <div className="flex space-x-8 p-5 ml-5">
+        <div className="flex space-x-4 overflow-scroll scrollbar-hide p-3 ml-5">
         {discoverData?.map((item)=>(
             <DiscoveryCard key={item.img} img={item.img} title={item.title} description={item.description}/>
           ))}</div>
