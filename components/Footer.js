@@ -6,9 +6,9 @@ function Footer() {
     return (
         <div className="bg-gray-100 pt-5 pl-15 ">
             <div className=" grid grid-cols-1 md:grid-cols-4 gap-y-10 max-w-7xl px-32 py-14">
-                <div className="space-y-5 text-xs text-gray-800 font-rubik">
+                <div className="space-y-5 text-sm text-gray-800 font-rubik">
                    
-                        <h1 className="uppercase font-bold text-black">About</h1>
+                        <h1 className="uppercase font-bold text-black text-lg">About</h1>
                         <p>How Airbnb works</p>
                         <p>Newsroom</p>
                         <p>Airbnb 2021</p>
@@ -23,9 +23,9 @@ function Footer() {
                         
 
                 </div>
-                <div className="space-y-5 text-xs text-gray-800 font-rubik">
+                <div className="space-y-5 text-sm text-gray-800 font-rubik">
                 
-                        <h1 className="uppercase font-bold text-black">Community</h1>
+                        <h1 className="uppercase font-bold text-black text-lg">Community</h1>
                         <p>Diversity & Belonging</p>
                         <p>Accessibility</p>
                         <p>Airbnb Associates</p>
@@ -35,9 +35,9 @@ function Footer() {
                         
                         
                 </div>
-                <div className="space-y-5 text-xs text-gray-800 font-rubik">
+                <div className="space-y-5 text-sm text-gray-800 font-rubik">
                 
-                        <h1 className="uppercase font-bold text-black">Host</h1>
+                        <h1 className="uppercase font-bold text-black text-lg">Host</h1>
                         <p>Host your home</p>
                         <p>Host an Online Experience</p>
                         <p>Host an Experience</p>
@@ -47,9 +47,9 @@ function Footer() {
                         
                        
                 </div>
-                <div className="space-y-5 text-xs text-gray-700 font-rubik">
+                <div className="space-y-5 text-sm text-gray-700 font-rubik">
                     
-                <h1 className="uppercase font-bold text-black">Support</h1>
+                <h1 className="uppercase font-bold text-black text-lg">Support</h1>
                         <p>Our COVID-19 Response</p>
                         <p>Help Centre</p>
                         <p>Cancellation options</p>
