@@ -10,8 +10,8 @@ import {useRouter} from "next/dist/client/router";
 function Search({searchResults}) {
     const router=useRouter();
     const {location,startDate,endDate,numberOfGuests}=router.query;
-    const formatedStartDate = format(new Date(startDate), "dd MMMM yyyy");
-  const formatedEndDate = format(new Date(endDate), "dd MMMM yyyy");
+    const formatedStartDate = format(new Date(startDate), "dd MMM yy");
+  const formatedEndDate = format(new Date(endDate), "dd MMM yy");
 
   const range = `${formatedStartDate} - ${formatedEndDate}`;
     console.log(searchResults);
