@@ -21,10 +21,11 @@ function Search({searchResults}) {
     return (
         <div className=" h-screen">
             <Head>
-        <title>Airbnb:   </title>
-        <link rel="icon" href="/logo.png" />
+        <title>Airbnb:{location}   </title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-            <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`}/>
+            <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`}
+            className="bg-white"/>
             <main className="flex mt-4">
                 <section className="flex-grow pt-20  px-6">
                     <p className="text-xs">300+ Stays for {range} - {noOfGuests} guests</p>
@@ -55,7 +56,7 @@ function Search({searchResults}) {
             )}
                         </div> 
                 </section>
-                <section className="hidden xl:inline-flex xl:min-w-[600px]">
+                <section className="hidden xl:inline-flex xl:min-w-[600px] mt-20px">
                 <Map searchResults={searchResults} />
                 </section>
             </main>

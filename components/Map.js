@@ -24,12 +24,13 @@ function Map({searchResults}) {
       mapStyle="mapbox://styles/sanyagoyal/ckua4euf02hw319noo58vlp56"
       mapboxApiAccessToken={process.env.mapbox_key}
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
+      
     >
         {searchResults.map((res)=>(
             <div key={res.long}>
                 <Marker
                 longitude={res.long}
-                latitude={res.land}
+                latitude={res.lat}
                 offsetLeft={-20}
                 offsetTop={-10}
                 >
@@ -42,7 +43,7 @@ function Map({searchResults}) {
                 onClose={()=>setSelectedLocation(res)}
                 closeOnClick={true}
                 ongitude={res.long}
-                latitude={res.land}
+                latitude={res.lat}
                 >{res.title}</Popup>):false}
 
             </div>
