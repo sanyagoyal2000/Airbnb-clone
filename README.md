@@ -1,6 +1,6 @@
 # Airbnb Clone
 Link to the application: <br/>
-https://airbnb-clone-professioanled.vercel.app/
+https://airbnb-sanyagoyal2000.vercel.app/
 
 
 
