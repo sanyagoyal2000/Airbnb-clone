@@ -65,7 +65,7 @@ function Footer() {
                     <div>
                    
                     <div className="flex text-gray-700 space-y-4 ml-6 text-xs">
-                        <p className="mt-4">  © 2021 Airbnb, Inc.</p>
+                        <p className="mt-4">  © 2021 Sanyabnb, Inc.</p>
                         <p className="mt-4 ml-4"> · Privacy</p>
                         <p className="mt-4 ml-4"> · Terms</p>
                         <p className="mt-4 ml-4"> · Sitemap</p>
