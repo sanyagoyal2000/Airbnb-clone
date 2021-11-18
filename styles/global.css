@@ -1,8 +1,25 @@
 @tailwind components;
 
+
+
 @layer components{
     .button{
         @apply px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100
          ease-out;
     }
+}
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    background: rgb(255, 241, 244);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(255, 142, 160); 
+    border-radius: 15px;
+}
+ 
+::-webkit-scrollbar-thumb:hover{
+    border-radius: 15px;
+    background:rgb(248, 90, 117); 
 }

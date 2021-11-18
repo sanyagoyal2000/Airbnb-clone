@@ -9,7 +9,7 @@ import DiscoveryCard from "../components/DiscoveryCard";
 
 export default function Home({exploreData,cardsData,discoverData}) {
   return (
-    <div className="scrollbar scrollbar-thumb-pink-500 scrollbar-track-pink-100" >
+    <div className="scrollbar scrollbar-thumb-red-500 scrollbar-track-pink-400" >
       <Head>
         <title>Airbnb:Holidays,Rentals,Cabins</title>
         <link rel="icon" href="/favicon.ico" />
