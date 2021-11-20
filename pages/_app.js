@@ -1,6 +1,8 @@
 import 'tailwindcss/tailwind.css'
 import '../styles/global.css';
 import Router from "next/router";
+import {Provider} from "next-auth/client"
+import Head from 'next/head';
 
 import ProgressBar from "@badrap/bar-of-progress";
 const progress=new ProgressBar({
@@ -16,8 +18,20 @@ Router.events.on('routeChangeError',progress.finish);
 function MyApp({ Component, pageProps }) {
   
    
-  return <Component {...pageProps} />
-  
+  return (
+    <>
+    <Head>
+    <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+/>
+    </Head>
+    <Provider session={pageProps.session}>
+    <Component {...pageProps} />
+    </Provider>
+    
+   </>
+  );
 }
 
 export default MyApp
