@@ -1,11 +1,15 @@
 
 import Image from "next/image";
-import {SearchIcon,UserIcon} from "@heroicons/react/solid";
+import firebase from "firebase";
+import { getSession} from "next-auth/client";
+
+import {SearchIcon} from "@heroicons/react/solid";
 import React, {useState,useEffect } from 'react';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import {useRouter} from "next/dist/client/router";
+import { signIn, useSession, signOut } from "next-auth/client";
 
 
 function Header({placeholder}) {
@@ -16,6 +20,8 @@ function Header({placeholder}) {
   const [endDate,setEndDate]=useState(new Date());
   const [numberOfGuests,setNumberOfGuests]=useState(1);
   const router =useRouter();
+  const [session] = useSession();
+
 
   const handleSelect= (ranges) =>{
     setStartDate(ranges.selection.startDate);
@@ -77,12 +83,19 @@ function Header({placeholder}) {
   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
 </svg>
 <div className="flex  bg-white items-center space-x-2 border-2 p-2 rounded-full cursor-pointer hover:shadow">
-<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<div className="flex flex-row">
+  <div>
+  <svg xmlns="http://www.w3.org/2000/svg" onClick={() => router.push("/signin")} className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
 </svg>
-<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  
+</div>
+<div>
+{session?.user ? <img src={session?.user?.image} alt={session?.user?.name} className="h-7 cursor-pointer rounded-full"  onClick={() => signOut()}/> :<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>
+</svg>}
+        </div>
+</div>
 </div>
            </div>
            {searchInput &&<div className="flex flex-col col-span-3 mx-auto border-rounded bg-white shadow mt-0">
@@ -112,9 +125,11 @@ function Header({placeholder}) {
 
 export default Header
 
-export async function getServerSideProps(){
+export async function getServerSideProps(context){
   await fetch("https://jsonkeeper.com/b/29X0").then((res)=>res.json());
+  const session=await getSession(context);
   return {
     props:{searchResults},
+    session
   }
 }

@@ -10,7 +10,7 @@ import {useRouter} from "next/dist/client/router";
 
 function Search({searchResults}) {
     const router = useRouter();
-    const { location, startDate, endDate, noOfGuests } = router.query;
+    const { location, startDate, endDate, numberOfGuests } = router.query;
   
     
     const formatedStartDate = format(new Date(startDate), "dd MMM yy");
@@ -24,11 +24,11 @@ function Search({searchResults}) {
         <title>Airbnb:{location}   </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-            <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`}
+            <Header placeholder={`${location} | ${range} | ${numberOfGuests} guests`}
             className="bg-white"/>
             <main className="flex mt-4">
                 <section className="flex-grow pt-20  px-6">
-                    <p className="text-xs">300+ Stays for {range} - {noOfGuests} guests</p>
+                    <p className="text-xs">300+ Stays for {range} - {numberOfGuests} guests</p>
                     <h1 className="text-3xl font-semibold mb-6 mt-2">Stays in {location}</h1>
                     <div className="hidden lg:inline-flex space-x-3 mb-5 text-gray-800 whitespace-nowrap">
                         <p className="button transform-transition-duration-100">Cancellation flexibilty</p>
