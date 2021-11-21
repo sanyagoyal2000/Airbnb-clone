@@ -6,8 +6,18 @@ import SmallCard from "../components/SmallCard";
 import MediumCard from "../components/MediumCard";
 import LargeCard from "../components/LargeCard";
 import DiscoveryCard from "../components/DiscoveryCard";
+import { useEffect, useState } from "react";
+import Loader from "../components/Loader"
 
 export default function Home({exploreData,cardsData,discoverData}) {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
   return (
     <div className="scrollbar scrollbar-thumb-red-500 scrollbar-track-pink-400" >
       <Head>
@@ -19,7 +29,9 @@ export default function Home({exploreData,cardsData,discoverData}) {
        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"/>
        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"/>
       </Head>
-
+      {loading?
+        <Loader/>
+       :(<>
       <Header/>
       <Banner/>
       <main>
@@ -52,9 +64,11 @@ export default function Home({exploreData,cardsData,discoverData}) {
         </section>
 
       </main>
-      <Footer className="pt-10"/>
+      <Footer className="pt-10"/></>
+      )}
     </div>
-  )
+    
+  );
 }
 
 export async function getStaticProps(){
